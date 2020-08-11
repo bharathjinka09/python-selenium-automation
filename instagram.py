@@ -2,7 +2,7 @@ from selenium import webdriver
 import time, os
 from config import USERNAME, PASSWORD
 
-users = ['jasim_ak']
+users = ['jasim_ak','bharathjinka09']
 
 browser = webdriver.Chrome(f"{os.getcwd()}/chromedriver")
 browser.get('https://www.instagram.com/')
