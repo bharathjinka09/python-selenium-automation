@@ -32,7 +32,7 @@ for group in groups:
 
     pyperclip.copy(group)
 
-    search_box.send_keys(Keys.SHIFT, Keys.INSERT)  # Keys.CONTROL + "v"
+    search_box.send_keys(Keys.SHIFT, Keys.INSERT)  # Keys.CONTROL + "v" (for WINDOWS Users)
 
     time.sleep(2)
 
