@@ -2,7 +2,7 @@
 
 ## Group names text filename = "groups.txt"
 
-## Image filename fullpath (use pwd command in cmd) = "groups.txt"
+## Image filename fullpath (use pwd command in cmd) = "/home/mieone/Downloads/python-selenium-automation/whatsappAutomation/bharath.jpg"
 
 ## Image caption = "Happy birthday!"
 
