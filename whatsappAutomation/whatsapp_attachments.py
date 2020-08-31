@@ -6,6 +6,7 @@ from selenium.webdriver.common.keys import Keys
 import pyperclip
 import time
 import sys
+from config import CHROME_PROFILE_PATH
 
 try:
     if sys.argv[1]:
@@ -17,9 +18,11 @@ except IndexError:
 with open('msg.txt', 'r', encoding='utf8') as f:
     msg = f.read()
 
+options = webdriver.ChromeOptions()
+options.add_argument(CHROME_PROFILE_PATH)
 
 browser = webdriver.Chrome(
-    executable_path='../chromedriver')
+    executable_path='../chromedriver', options=options)
 
 browser.maximize_window()
 
@@ -39,7 +42,8 @@ for group in groups:
 
     pyperclip.copy(group)
 
-    search_box.send_keys(Keys.SHIFT, Keys.INSERT)  # Keys.CONTROL + "v" (for WINDOWS Users)
+    # Keys.CONTROL + "v" (for WINDOWS Users)
+    search_box.send_keys(Keys.SHIFT, Keys.INSERT)
 
     time.sleep(2)
 
@@ -61,7 +65,8 @@ for group in groups:
 
     try:
         if sys.argv[2]:
-            attachment_box = browser.find_element_by_xpath('//div[@title="Attach"]')
+            attachment_box = browser.find_element_by_xpath(
+                '//div[@title="Attach"]')
             attachment_box.click()
             time.sleep(1)
 
@@ -72,7 +77,8 @@ for group in groups:
 
             send_btn = browser.find_element_by_xpath(
                 '//span[@data-icon="send"]')
-            caption = browser.find_element_by_xpath('//div[@contenteditable="true"][@data-tab="1"]')
+            caption = browser.find_element_by_xpath(
+                '//div[@contenteditable="true"][@data-tab="1"]')
             try:
                 if sys.argv[3]:
                     # caption.send_keys('Happy birthday')
